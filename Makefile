@@ -1,6 +1,7 @@
 # Project parameters
 VERSION ?= $(shell git describe --tags --always --dirty --match=v* || (echo "command failed $$?"; exit 1))
-IMAGE_NAME ?= docker.io/vshn/fluentd-s3:$(VERSION)
+IMAGE ?= docker.io/vshn/fluentd-s3
+IMAGE_NAME = $(IMAGE):$(VERSION)
 
 .PHONY: all
 all: build
